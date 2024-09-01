@@ -19,7 +19,7 @@ variables:
     default: https://adb-2331784716507387.7.azuredatabricks.net/
   prdworkspace:
     description: workspace url for prod
-    default: not-yet-known
+    default: https://adb-812671774045136.16.azuredatabricks.net/
   username:
     description: adb360-sp uid
     default: b9534e03-9498-41f1-a5f3-bae5c78663fc
@@ -61,11 +61,11 @@ targets:
     variables:
       catalogname: catadb360prd
       schemaname: schemaadb360prd
-      bronzestorageaccountname: not-yet-known
+      bronzestorageaccountname: dlg2prdcanadacentralo4v5
       
     mode: production
     workspace:
-      host: not-yet-known
+      host: https://adb-812671774045136.16.azuredatabricks.net/
       # We always use /Users/chris@mngenv289593.onmicrosoft.com for all resources to make sure we only have a single copy.
       # If this path results in an error, please make sure you have a recent version of the CLI installed.
       root_path: /Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}

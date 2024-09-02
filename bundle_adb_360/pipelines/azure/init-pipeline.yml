@@ -2,13 +2,14 @@ trigger:
   branches:
     include:
       - devy
+      - main
 
   paths:
     include:
       - '*'
 
 variables:
-- group: vgdevadb360
+- group: $(if [eq(variables['Build.SourceBranchName'], 'main')], 'vgprdadb360', 'vgdevadb360')
 
 stages:
 - stage: stg_validate_deploy_bundles

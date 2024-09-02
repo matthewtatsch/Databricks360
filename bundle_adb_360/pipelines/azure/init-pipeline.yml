@@ -9,7 +9,11 @@ trigger:
       - '*'
 
 variables:
-- group: $(if [eq(variables['Build.SourceBranchName'], 'main')], 'vgprdadb360', 'vgdevadb360')
+# - group: vgdevadb360
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/dev') }}: 
+    - group: vgdevadb360
+  - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}: 
+    - group: vgprdadb360
 
 stages:
 - stage: stg_validate_deploy_bundles
